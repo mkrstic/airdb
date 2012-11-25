@@ -1,0 +1,64 @@
+.specification {
+	max-width: 670px;
+	margin: 10px 0;
+	padding: 0;
+}
+
+.specification dt,dd {
+	width: 340px;
+	float: left;
+	margin: 0;
+	padding: 5px 0 7px 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.specification dt {
+	clear: left;
+	width: 150px;
+	margin-right: 12px;
+	padding-right: 0;
+	text-align: right;
+	opacity: 0.7;
+}
+.specification a {
+	color: #A82A15;
+	text-decoration: none;
+}
+.specification:after,.wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.smaller-text {
+	font-size: 0.8em;
+}
+
+.form input[type=text] {
+	width: 200px;
+}
+.form td {
+	padding: 0 20px 10px 0;
+}
+
+#map {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#tabstrip-2 {
+	height: 600px;
+}
+
+#panelbar .panelContent {
+	margin: 10px 10px 10px 10px;
+	border: none;
+}
+
+#editTab {
+	float: right;
+}

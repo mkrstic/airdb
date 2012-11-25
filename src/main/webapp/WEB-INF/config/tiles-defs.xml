@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="standardLayout" template="/WEB-INF/templates/standardLayout.jsp">
+		<put-attribute name="title" value="Почетна - Завршни рад : Младен Крстић" />
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp" />
+		<put-attribute name="sidebar" value="" />
+		<put-attribute name="header" value="/WEB-INF/templates/header.jsp" />
+		<put-attribute name="featured-content" value="" />
+		<put-attribute name="main-content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
+		<put-list-attribute name="script"></put-list-attribute>
+		<put-list-attribute name="css"></put-list-attribute>
+	</definition>
+	
+	<definition name="home" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=home" />
+		<put-attribute name="main-content" value="/WEB-INF/views/home.jsp" />
+	</definition>
+	
+	<definition name="contact" extends="standardLayout">
+		<put-attribute name="title" value="Контакт - Завршни рад : Младен Крстић" />
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=info" />
+		<put-attribute name="main-content" value="/WEB-INF/views/contact.jsp" />
+	</definition>
+	
+	<definition name="about" extends="standardLayout">
+		<put-attribute name="title" value="О раду - Завршни рад : Младен Крстић" />
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=info" />
+		<put-attribute name="main-content" value="/WEB-INF/views/about.jsp" />
+	</definition>
+	
+	<definition name="airports_airport" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airports" />
+		<put-attribute name="title" value="Аеродром - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/airports/airport.jsp" />
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/airports/airport.js" type="string"/>
+  		</put-list-attribute>
+  		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/airports/airport.css" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="airports_list" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airports" />
+		<put-attribute name="title" value="Преглед аеродрома - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/airports/list.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/airports/list.css" type="string"/>
+    		<add-attribute value="/webapp/resources/js/lib/jquery.ui/css/ui-lightness/jquery-ui-1.8.23.custom.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+			<add-attribute value="/webapp/resources/js/lib/markerclusterer_packed.js" type="string"/>
+			<add-attribute value="/webapp/resources/js/lib/jquery.ui/jquery-ui-1.8.23.custom.min.js" type="string"/>
+    		<add-attribute value="/webapp/resources/js/airports/list.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="countries_list" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airports" />
+		<put-attribute name="title" value="Преглед аеродрома - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/countries/list.jsp" />
+		<put-list-attribute name="css">
+			<add-attribute value="/webapp/resources/js/lib/jquery.ui/css/ui-lightness/jquery-ui-1.8.23.custom.css" type="string"/>
+    		<add-attribute value="/webapp/resources/css/countries/list.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+			<add-attribute value="/webapp/resources/js/lib/markerclusterer_packed.js" type="string"/>
+			<add-attribute value="/webapp/resources/js/lib/jquery.ui/jquery-ui-1.8.23.custom.min.js" type="string"/>
+			<add-attribute value="/webapp/resources/js/lib/jquery.lazyload.min.js" type="string"/>
+    		<add-attribute value="/webapp/resources/js/countries/list.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="airports_add" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airports" />
+		<put-attribute name="title" value="Додај аеродром - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/airports/add.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/airports/add.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/airports/add.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="airlines_airline" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airlines" />
+		<put-attribute name="title" value="Авиопревозник - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/airlines/airline.jsp" />
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/airlines/airline.js" type="string"/>
+  		</put-list-attribute>
+  		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/airlines/airline.css" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="airlines_list" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airlines" />
+		<put-attribute name="title" value="Преглед авиопревозника - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/airlines/list.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/airlines/list.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/airlines/list.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="airlines_add" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=airlines" />
+		<put-attribute name="title" value="Додај авиопревозника - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/airlines/add.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/airlines/add.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/airlines/add.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="paths_search" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=routes" />
+		<put-attribute name="title" value="Претрага летова - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/paths/search.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/paths/search.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/paths/search.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	
+	<definition name="routes_route" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=routes" />
+		<put-attribute name="title" value="Лет - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/routes/route.jsp" />
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/routes/route.js" type="string"/>
+  		</put-list-attribute>
+  		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/routes/route.css" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="routes_add" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=routes" />
+		<put-attribute name="title" value="Додај лет - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/routes/add.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/routes/add.css" type="string"/>
+  		</put-list-attribute>
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/routes/add.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="routes_list" extends="standardLayout">
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=routes" />
+		<put-attribute name="title" value="Списак летова - Завршни рад : Младен Крстић" />
+		<put-attribute name="main-content" value="/WEB-INF/views/routes/list.jsp" />
+		<put-list-attribute name="css">
+    		<add-attribute value="/webapp/resources/css/routes/list.css" type="string"/>
+  		</put-list-attribute>	
+		<put-list-attribute name="script">
+    		<add-attribute value="/webapp/resources/js/routes/list.js" type="string"/>
+  		</put-list-attribute>
+	</definition>
+	
+	<definition name="404" extends="standardLayout">
+		<put-attribute name="title" value="404 грешка - Завршни рад : Младен Крстић" />
+  		<put-attribute name="main-content" value="/WEB-INF/error/404.jsp" />
+	</definition>
+	
+</tiles-definitions>
