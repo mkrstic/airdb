@@ -1,9 +1,6 @@
 package app.web.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,53 +53,6 @@ public class PathController {
 		} 
 		return list;
 	}
-	
-	private void sortPathBeans(List<PathBean> pathBeans, String type,
-			String costProp) {
-		Comparator<PathBean> comparator;
-		if ("cheapest".equalsIgnoreCase(type)
-				&& "distance".equalsIgnoreCase(costProp)) {
-			comparator = new Comparator<PathBean>() {
-				@Override
-				public int compare(PathBean o1, PathBean o2) {
-					return o1.getDistance().compareTo(o2.getDistance());
-				}
-			};
-
-		} else if ("cheapest".equalsIgnoreCase(type)
-				&& "price".equalsIgnoreCase(costProp)) {
-			comparator = new Comparator<PathBean>() {
-				@Override
-				public int compare(PathBean o1, PathBean o2) {
-					return o1.getPrice().compareTo(o2.getPrice());
-				}
-			};
-		} else if ("optimistic".equalsIgnoreCase(type)) {
-			comparator = new Comparator<PathBean>() {
-				@Override
-				public int compare(PathBean o1, PathBean o2) {
-					if (o1.getLength().compareTo(o2.getLength()) == 0) {
-						if (o1.getPrice().compareTo(o2.getPrice()) == 0) {
-							return o1.getDistance().compareTo(o2.getDistance());
-						}
-						return o1.getPrice().compareTo(o2.getPrice());
-					}
-					return o1.getLength().compareTo(o2.getLength());
-				}
-			};
-		} else {
-			comparator = new Comparator<PathBean>() {
-				@Override
-				public int compare(PathBean o1, PathBean o2) {
-					return 0;
-					// return o1.getLength().compareTo(o2.getLength());
-				}
-			};
-		}
-		Collections.sort((LinkedList<PathBean>) pathBeans, comparator);
-
-	}
-	
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showPaths() {
@@ -173,29 +123,6 @@ public class PathController {
 		return new CollectionWrapper<PathBean>(pathBeans, pathBeans.size(), pathBeans.size(), stopwatch.getTime());
 	}
 	
-	@RequestMapping(params = { "format=json" }, method = RequestMethod.GET, headers = { "content-type=application/json" })
-	public @ResponseBody
-	CollectionWrapper<PathBean> jsonFindAllPaths(
-			@RequestParam String type,
-			@RequestParam Long sourceId,
-			@RequestParam Long destId,
-			@RequestParam(defaultValue = "99", required = false) int maxDepth,
-			@RequestParam(defaultValue = "price", required = false) String costProp,
-			@RequestParam(defaultValue = "true", required = false) boolean lazy,
-			@RequestParam(defaultValue = "0", required = false) int skip,
-			@RequestParam(defaultValue = "9999", required = false) int limit) {
-		StopWatch stopwatch = new StopWatch();
-		stopwatch.start();
-		List<PathBean> paths = service.findAllShortestPaths(sourceId, destId, limit, skip, lazy);
-		stopwatch.stop();
-		for (PathBean path : paths) {
-			if (path.getLength() <= maxDepth) {
-				paths.remove(path);
-			}
-		}
-		sortPathBeans(paths, type, costProp);
-		return new CollectionWrapper<PathBean>(paths, paths.size(), paths.size(), stopwatch.getTime());
-	}
 
 	/**
 	 * Handle json exception.

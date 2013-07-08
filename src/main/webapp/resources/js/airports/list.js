@@ -30,7 +30,7 @@ jQuery(document).ready(function() {
 				contentType: "application/json",
 			},
 			parameterMap : function(options) {
-				return {format:'json', getAll:true}
+				return {format:'json', getAll:true};
 			},
 		},
 		type : "json",

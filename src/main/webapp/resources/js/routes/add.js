@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
 							format:'json',
 							startsWith : jQuery("#destAirportAutocomplete").data("kendoAutoComplete").value(),
 							limit: 15
-						}
+						};
 					}
 				}
 			}),
@@ -65,7 +65,7 @@ jQuery(document).ready(function() {
 							format:'json',
 							startsWith : jQuery("#sourceAirportAutocomplete").data("kendoAutoComplete").value(),
 							limit: 15
-						}
+						};
 					}
 				}
 			}),
@@ -103,7 +103,7 @@ jQuery(document).ready(function() {
 							format:'json',
 							startsWith : jQuery("#airlineAutocomplete").data("kendoAutoComplete").value(),
 							limit: 15
-						}
+						};
 					}
 				}
 			}),

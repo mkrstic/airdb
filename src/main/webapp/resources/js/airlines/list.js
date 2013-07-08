@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 				contentType : 'application/json'
 			},
 			parameterMap : function(options) {
-				return {format:'json',limit: options.take, skip: options.skip}
+				return {format:'json',limit: options.take, skip: options.skip};
 			}
 		},
 		type : "json",
@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 						format:'json',
 						startsWith : jQuery("#airlineAutocomplete").data("kendoAutoComplete").value(),
 						limit: 15
-					}
+					};
 				}
 			}
 		}),

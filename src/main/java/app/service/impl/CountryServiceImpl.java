@@ -3,7 +3,6 @@ package app.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 
 import app.model.Country;
 import app.model.repo.CountryRepository;
@@ -31,7 +30,6 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	@Override
-	@Cacheable(value = "countriesCache")
 	public List<Country> findAll(int limit, int skip) {
 		return repo.findAll(limit, skip);
 	}

@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
 					limit: options.take,
 					skip: options.skip,
 					lazy: false,
-				}
+				};
 			}
 		},
 		type : "json",

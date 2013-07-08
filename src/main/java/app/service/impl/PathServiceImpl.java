@@ -100,17 +100,6 @@ public class PathServiceImpl implements PathService {
 	}
 
 	@Override
-	public List<PathBean> findAllShortestPaths(long startId, long endId,
-			int limit, int skip, boolean lazy) {
-		Iterable<org.neo4j.graphdb.Path> rawPaths = repo.findAllShortestPaths(startId, endId, limit, skip);
-		List<PathBean> paths = new LinkedList<PathBean>();
-		for (org.neo4j.graphdb.Path rawPath : rawPaths) {
-			paths.add(buildPath(rawPath, lazy));
-		}
-		return paths;
-	}
-
-	@Override
 	public PathBean findDirectPath(long startId, long endId, boolean lazy) {
 		List<org.neo4j.graphdb.Path> rawPaths = repo.findDirectPath(startId, endId);
 		return rawPaths.isEmpty() ? null : buildPath(rawPaths.get(0), lazy); 

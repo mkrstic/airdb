@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
 						startsWith : jQuery("#autocompleteAirportStart").data("kendoAutoComplete").value(),
 						skip : options.skip,
 						limit: options.take,
-					}
+					};
 				}
 			},
 			requestStart : function() {
@@ -76,7 +76,7 @@ jQuery(document).ready(function() {
 						startsWith : jQuery("#autocompleteAirportEnd").data("kendoAutoComplete").value(),
 						skip : options.skip,
 						limit: options.take,
-					}
+					};
 				}
 			},
 			requestStart : function() {
@@ -217,7 +217,6 @@ function checkLocationHref() {
 						setTimeout(function() {
 							triggerPathSearch();
 						}, 500);
-						console.log('4');
 					}
 				});
 			}
@@ -274,8 +273,16 @@ function showPaths(response) {
 			dataType : 'json',
 			data : {format : 'json', ids : idsArr},
 			success : function(airlines) {
+//				if (airlines == null) {
+//					alert('null');
+//				}
 				for ( var i = 0; i < path.routes.length; i++) {
-					path.routes[i].alid = airlines[i];
+					if (airlines[i] == null) {
+						path.routes[i].alid = '#';
+						path.routes[i].name = '';
+					} else {
+						path.routes[i].alid = airlines[i];
+					}
 				}
 				jQuery('#pathTemplateContainer').html('');
 				jQuery("#pathTemplate").tmpl({

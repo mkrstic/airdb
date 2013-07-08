@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE tiles-definitions PUBLIC
-       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
-       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 
 	<definition name="standardLayout" template="/WEB-INF/templates/standardLayout.jsp">
@@ -127,7 +124,7 @@
 	
 	<definition name="paths_search" extends="standardLayout">
 		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=routes" />
-		<put-attribute name="title" value="Претрага летова - Завршни рад : Младен Крстић" />
+		<put-attribute name="title" value="Претрaживач летова - Завршни рад : Младен Крстић" />
 		<put-attribute name="main-content" value="/WEB-INF/views/paths/search.jsp" />
 		<put-list-attribute name="css">
     		<add-attribute value="/webapp/resources/css/paths/search.css" type="string"/>
@@ -139,7 +136,7 @@
 	
 	
 	<definition name="routes_route" extends="standardLayout">
-		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp?highlight=routes" />
+		<put-attribute name="top" value="/WEB-INF/templates/top-menu.jsp" />
 		<put-attribute name="title" value="Лет - Завршни рад : Младен Крстић" />
 		<put-attribute name="main-content" value="/WEB-INF/views/routes/route.jsp" />
 		<put-list-attribute name="script">

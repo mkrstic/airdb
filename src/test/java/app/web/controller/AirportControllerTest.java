@@ -115,7 +115,7 @@ public class AirportControllerTest {
 				get("/aerodromi").contentType(MediaType.APPLICATION_JSON)
 						.param("format", "json").param("limit", "20")
 						.param("startsWith", "beo")).andExpect(status().isOk())
-				.andExpect(content().type(MediaType.APPLICATION_JSON));
+				.andExpect(content().mimeType(MediaType.APPLICATION_JSON));
 		long elapsed = System.currentTimeMillis() - startTime;
 		System.out.println("Elapsed: " + elapsed + " ms");
 
@@ -124,7 +124,7 @@ public class AirportControllerTest {
 				get("/aerodromi").contentType(MediaType.APPLICATION_JSON)
 						.param("format", "json").param("limit", "100")
 						.param("startsWith", "zag")).andExpect(status().isOk())
-				.andExpect(content().type(MediaType.APPLICATION_JSON));
+				.andExpect(content().mimeType(MediaType.APPLICATION_JSON));
 		elapsed = System.currentTimeMillis() - startTime;
 		System.out.println("Elapsed: " + elapsed + " ms");
 	}
@@ -136,6 +136,6 @@ public class AirportControllerTest {
 						.param("format", "json").param("limit", "5")
 						.param("startsWith", "slak32jkla"))
 				.andExpect(status().isOk())
-				.andExpect(content().type(MediaType.APPLICATION_JSON));
+				.andExpect(content().mimeType(MediaType.APPLICATION_JSON));
 	}
 }

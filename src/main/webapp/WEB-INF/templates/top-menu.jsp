@@ -13,24 +13,17 @@
 			<a href="${airports}"><span>Аеродроми</span></a></li>
 		<li id="menu_airlines"><spring:url value="/avioprevoznici"
 				var="airlines" /> <a href="${airlines}"><span>Авиопревозници</span></a></li>
-		<li id="menu_routes"><spring:url value="/letovi" var="routes" /> <spring:url
-				value="/putanje" var="paths" /> <a href="${routes}"
-			class="parent"><span>Летови</span></a>
-			<div>
-				<ul>
-					<li><a href="${routes}"><span>Сви летови</span></a></li>
-					<li><a href="${paths}"><span>Налажење пута</span></a></li>
-				</ul>
-			</div></li>
-		<li id="menu_info"><a href="javascript:void(0)" class="last parent"><span>Инфо</span></a>
-			<div>
-				<ul>
-					<li><spring:url value="/o-radu" var="about" /> <a
-						href="${about}"><span>О раду</span></a></li>
-					<li><spring:url value="/kontakt" var="contact" /> <a
-						href="${contact}"><span>Контакт</span></a></li>
-				</ul>
-			</div></li>
+		<li id="menu_routes"><spring:url value="/putanje" var="paths" /> <a href="${paths}"
+			class="parent"><span>Претраживач летова</span></a></li>
+<!-- 		<li id="menu_info"><a href="javascript:void(0)" class="last parent"><span>Инфо</span></a> -->
+<!-- 			<div> -->
+<!-- 				<ul> -->
+<%-- 					<li><spring:url value="/o-radu" var="about" /> <a --%>
+<%-- 						href="${about}"><span>О раду</span></a></li> --%>
+<%-- 					<li><spring:url value="/kontakt" var="contact" /> <a --%>
+<%-- 						href="${contact}"><span>Контакт</span></a></li> --%>
+<!-- 				</ul> -->
+<!-- 			</div></li> -->
 	</ul>
 </div>
 

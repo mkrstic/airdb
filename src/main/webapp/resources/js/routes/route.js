@@ -74,7 +74,7 @@ jQuery(document).ready(function() {
 						format:'json',
 						startsWith : jQuery("#airlineAutocomplete").data("kendoAutoComplete").value(),
 						limit: 15
-					}
+					};
 				}
 			}
 		}),

@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 				contentType: "application/json",
 			},
 			parameterMap : function(options) {
-				return {format:'json', limit:1000}
+				return {format:'json', limit:1000};
 			},
 		},
 		type : "json",

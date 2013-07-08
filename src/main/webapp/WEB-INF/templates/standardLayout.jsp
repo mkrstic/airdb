@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tiles-extras" uri="http://tiles.apache.org/tags-tiles-extras" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="jsPath" value="${contextPath}/resources/js"/>
 <!DOCTYPE html>
@@ -13,13 +14,13 @@
 	<link href="${contextPath}/resources/js/lib/kendoui/styles/kendo.common.min.css" rel="stylesheet" type="text/css"/>
 	<link href="${contextPath}/resources/js/lib/kendoui/styles/kendo.default.min.css" rel="stylesheet" type="text/css"/>
 	<link href="${contextPath}/resources/js/lib/apycom-menu/menu.css" rel="stylesheet" type="text/css"/>
-	<tiles:useAttribute id="cssList" name="css" classname="java.util.List" />
+	<tiles-extras:useAttribute id="cssList" name="css" classname="java.util.List" />
 	<c:forEach var="cssUrl" items="${cssList}">
 		<link href="${cssUrl}" rel="stylesheet" type="text/css"/>
 	</c:forEach>
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
-	<script>var ctx = "${contextPath}"</script>
-	<script>var jsPath = "${jsPath}"</script>
+	<script>var ctx = "${contextPath}";</script>
+	<script>var jsPath = "${jsPath}";</script>
 	<script src="${jsPath}/global/init.js"></script>
 </head>
 <body>
@@ -50,7 +51,7 @@
 	<script src="${contextPath}/resources/js/lib/jquery.template/jquery.tmpl.js"></script>
 	<script src="${jsPath}/global/layout.js"></script>
 	<script src="${contextPath}/resources/js/lib/apycom-menu/menu.js"></script>
-	<tiles:useAttribute id="scriptList" name="script" classname="java.util.List" />
+	<tiles-extras:useAttribute id="scriptList" name="script" classname="java.util.List" />
 	<c:forEach var="scriptUrl" items="${scriptList}">
   		<script type="text/javascript" src="${scriptUrl}"></script>
 	</c:forEach>

@@ -27,12 +27,12 @@
 	</bean>
 
 	<bean id="tilesviewResolver"
-		class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"
 		p:order="0">
 	</bean>
 
 	<bean id="tilesConfigurer"
-		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
 		p:definitions="/WEB-INF/config/tiles-defs.xml" />
 		
 	<mvc:annotation-driven />

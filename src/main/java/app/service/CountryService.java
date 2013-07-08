@@ -18,19 +18,19 @@ import app.model.Country;
 @Service("countryService")
 public interface CountryService {
 
-	public Country find(@Min(0) long id);
+	Country find(@Min(0) long id);
 
-	public Country findByAirport(long airportId);
+	Country findByAirport(long airportId);
 
-	public Country findByName(@NotEmpty String name);
+	Country findByName(@NotEmpty String name);
 
 	
-	public @NotNull
+	@NotNull
 	List<Country> findAll(@Min(1) int limit, @Min(0) int skip);
 	
-	public boolean exists(Long id);
+	boolean exists(Long id);
 	
-	public long count();
+	long count();
 
 }
 

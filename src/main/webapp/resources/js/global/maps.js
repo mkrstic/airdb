@@ -1,5 +1,6 @@
 var map = null;
 var mapClusterer = null;
+var apiKey = "AIzaSyClgQbLYXyAI3ie3GdzaFedmspbLzwttaE";
 var Maps = {
 		airportsIn : null,
 		airportsOut : null,
@@ -42,7 +43,7 @@ var Maps = {
 			} else {
 				var script = document.createElement("script");
 				script.type = "text/javascript";
-				script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyCxL2Dcd5pntzQtDYz73MF2Z-b8Xfj_wL4&sensor=false&libraries=drawing&language=sr&callback="+callbackFn;
+				script.src = "http://maps.googleapis.com/maps/api/js?key="+apiKey+"&sensor=false&libraries=drawing&language=sr&callback="+callbackFn;
 				document.body.appendChild(script);
 			}
 		},
@@ -152,7 +153,7 @@ var Maps = {
 		initializeSearchPathMap : function() {
 			this.clearOverlays();
 			this.mapBounds = new google.maps.LatLngBounds();
-			var position = new google.maps.LatLng(36.522587, -34.804688)
+			var position = new google.maps.LatLng(36.522587, -34.804688);
 			var zoomSize = 2;
 			this.createMap(position, zoomSize);
 		},
@@ -286,7 +287,7 @@ var Maps = {
 				} else if (j == newPaths.length-1) {
 					iconImage = this.redMarkerImg;
 				} else {
-					iconImage = this.otherMarkerImg
+					iconImage = this.otherMarkerImg;
 				}
 				var marker = new google.maps.Marker({
 					position: latlng,

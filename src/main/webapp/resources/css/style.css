@@ -666,14 +666,32 @@ body {
 	
 }
 .map-error-text {
+
+	float:left;
+	padding-left:300px;
 	margin-top: 100px;
 	padding-top: 100px;
-	color: red;
 	text-align: center;
-	font-size: 1.5em
 }
 
 #map {
 	background: #fff;
  	box-shadow: 5px 0 10px -1px #ccc;  
+}
+#radial-menu-table {
+	width: 1000px;
+	height: 200px;
+	border: none;
+	
+}
+
+#radial-menu-table td {
+	vertical-align: middle;
+	text-align: center;
+		
+}
+.launcher-title {
+	text-align: center;
+	font-family: fantasy;
+	font-size: 25px;
 }

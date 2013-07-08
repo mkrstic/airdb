@@ -10,8 +10,6 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang.StringUtils;
 import org.neo4j.graphdb.Direction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 
 import app.model.Airport;
@@ -52,20 +50,17 @@ public class AirportServiceImpl implements AirportService {
 	 * @see app.service.AirportService#getAll()
 	 */
 	@Override
-	@Cacheable(value = "allAirportsCache")
 	public List<Airport> findAll() {
 		return Lists.newArrayList(repo.findAll());
 	}
 	
 	@Override
-	@Cacheable(value = "airportsCache")
 	public @NotNull
 	List<Airport> findAllByCountry(long countryId, int limit, int skip) {
 		return repo.findAllByCountry(countryId, limit, skip);
 	}
 	
 	@Override
-	@Cacheable(value = "countByCountryCache")
 	public @NotNull
 	long countByCountry(long countryId) {
 		return repo.countByCountry(countryId);
@@ -96,7 +91,6 @@ public class AirportServiceImpl implements AirportService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"airportsCache", "allAirportsCache", "searchAirportsCache", "countByCountryCache"}, allEntries = true, beforeInvocation = false)
 	public long save(Airport airport) {
 		Country country = countryService.findByName(airport.getCountry());
 		if (country == null) {
@@ -113,7 +107,6 @@ public class AirportServiceImpl implements AirportService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"airportsCache", "allAirportsCache", "searchAirportsCache", "countByCountryCache"}, allEntries = true, beforeInvocation = false)
 	public void remove(long id) {
 		final Airport airport = repo.findOne(id);
 		if (airport == null) {
@@ -151,7 +144,6 @@ public class AirportServiceImpl implements AirportService {
 	 * @see app.service.AirportService#search(java.lang.String, int, int)
 	 */
 	@Override
-	@Cacheable(value = "searchAirportsCache", condition="#startsWith.length() > 4")
 	public List<Airport> search(String startsWith, int limit, int skip) {
 		List<Airport> airports;
 		if (StringUtils.isBlank(startsWith)) {

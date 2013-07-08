@@ -74,6 +74,11 @@
 								<td><form:errors path="country" cssClass="error-inline" /></td>
 							</tr>
 							<tr>
+								<td><form:label path="country" for="countryCode">Ознака државе:</form:label></td>
+								<td><form:input path="countryCode" id="countryCode" class="k-textbox"></form:input></td>
+								<td><form:errors path="countryCode" cssClass="error-inline" /></td>
+							</tr>
+							<tr>
 								<td><form:label path="iata" for="iata">ИАТА кôд:</form:label></td>
 								<td><form:input path="iata" id="iata" class="k-textbox" /></td>
 								<td><form:errors path="iata" cssClass="error-inline" /></td>

@@ -2,7 +2,6 @@ package app.model;
 
 import java.util.Locale;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
@@ -46,7 +45,7 @@ public class Airport {
 	private String icao;
 
 	/** The altitude. */
-	@Min(0) @Nullable
+	@Min(0)
 	private Double altitude;
 
 	/** The timezone. */

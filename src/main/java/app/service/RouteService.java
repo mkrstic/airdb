@@ -26,9 +26,9 @@ public interface RouteService {
 	 * @param id the id
 	 * @return the route
 	 */
-	public Route find(@Min(0) long id);
+	Route find(@Min(0) long id);
 	
-	public Route find(@Min(0) long id, boolean lazy);
+	Route find(@Min(0) long id, boolean lazy);
 	
 	/**
 	 * Gets the all.
@@ -37,7 +37,7 @@ public interface RouteService {
 	 * @param skip the skip
 	 * @return the all
 	 */
-	public @NotNull
+	@NotNull
 	List<Route> findAll(@Min(1) int limit, @Min(0) int skip, boolean lazy);
 
 	/**
@@ -50,7 +50,7 @@ public interface RouteService {
 	 * @param lazy the lazy
 	 * @return the all by airport
 	 */
-	public @NotNull
+	@NotNull
 	List<Route> findAllByAirport(@Min(0) long airportId,
 			@NotNull Direction direction, @Min(1) int limit, @Min(0) int skip,
 			boolean lazy);
@@ -64,7 +64,7 @@ public interface RouteService {
 	 * @param lazy the lazy
 	 * @return the all by airline
 	 */
-	public @NotNull
+	@NotNull
 	List<Route> findAllByAirline(@NotNull long airlineId, int limit,
 			int skip, boolean lazy);
 	
@@ -76,7 +76,7 @@ public interface RouteService {
 	 * @return the route
 	 */
 	@Transactional
-	public Route save(Route route);
+	Route save(Route route);
 
 	/**
 	 * Removes the.
@@ -84,7 +84,7 @@ public interface RouteService {
 	 * @param id the id
 	 */
 	@Transactional
-	public void remove(@Min(0) long id);
+	void remove(@Min(0) long id);
 
 	/**
 	 * Removes the all.
@@ -92,10 +92,10 @@ public interface RouteService {
 	 * @param idList the id list
 	 */
 	@Transactional
-	public void removeAll(@NotNull List<Long> idList);
+	void removeAll(@NotNull List<Long> idList);
 	
-	public boolean exists(Long id);
+	boolean exists(Long id);
 	
-	public long count();
+	long count();
 		
 }

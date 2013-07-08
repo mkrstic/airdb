@@ -22,6 +22,7 @@ public class Route {
 	private Long id;
 
 	/** The alid. */
+	@Indexed
 	private Long alid;
 
 	/** The source. */

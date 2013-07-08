@@ -70,9 +70,6 @@ public interface RouteRepository extends GraphRepository<Route>{
 	@Query("start r=relationship(*) where type(r) = 'ROUTE' return r skip {1} limit {0}")
 	public List<Route> findAll(int limit, int skip);
 	
-	@Query("start a=node({0}), b=node({1}) match paths = allShortestPaths(a-[:ROUTE*..8]->b) return paths order by length(paths) skip {3} limit {2}")
-	public Iterable<Path> findAllShortestPaths(long startId, long endId, int limit, int skip);
-	
 	@Query("start a=node({0}), b=node({1}) match path = a-[:ROUTE]->b return path limit 1")
 	public List<Path> findDirectPath(long startId, long endId);
 	

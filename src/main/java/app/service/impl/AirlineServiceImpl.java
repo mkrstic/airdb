@@ -1,11 +1,10 @@
 package app.service.impl;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 
 import app.model.Airline;
@@ -40,14 +39,22 @@ public class AirlineServiceImpl implements AirlineService {
 	
 	@Override
 	public Iterable<Airline> findAll(Iterable<Long> ids) {
-		return repo.findAll(ids);
+		List<Airline> airlines = new LinkedList<Airline>();
+		for (long id: ids) {
+			try {
+				final Airline airline = repo.findOne(id);
+				airlines.add(airline);
+			} catch (Exception ex) {
+				airlines.add(new Airline());
+			}
+		}
+		return airlines;
 	}
 
 	/* (non-Javadoc)
 	 * @see app.service.AirlineService#getAll(int, int)
 	 */
 	@Override
-	@Cacheable(value = "airlinesCache")
 	public List<Airline> findAll(int limit, int skip) {
 		return repo.findAll(limit, skip);
 	}
@@ -72,7 +79,6 @@ public class AirlineServiceImpl implements AirlineService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"airlinesCache"}, allEntries = true, beforeInvocation = false)
 	public Airline save(Airline airline) {
 		return repo.save(airline);
 	}
@@ -82,7 +88,6 @@ public class AirlineServiceImpl implements AirlineService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"airlinesCache"}, allEntries = true, beforeInvocation = false)
 	public void remove(long id) {
 		if (!repo.exists(id)) {
 			throw new IllegalArgumentException("Airline not found with id " + id);

@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.neo4j.graphdb.Direction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.neo4j.support.Neo4jTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +47,6 @@ public class RouteServiceImpl implements RouteService {
 	}
 
 	@Override
-	@Cacheable(value = "routesCache")
 	public List<Route> findAll(int limit, int skip, boolean lazy) {
 		List<Route> routes = repo.findAll(limit, skip);
 		if (!lazy) {
@@ -107,7 +104,6 @@ public class RouteServiceImpl implements RouteService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"routesCache"}, allEntries = true, beforeInvocation = false)
 	public Route save(Route route) {
 		return repo.save(route);
 	}
@@ -117,7 +113,6 @@ public class RouteServiceImpl implements RouteService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"routesCache"}, allEntries = true, beforeInvocation = false)
 	public void remove(long id) {
 		if (!repo.exists(id)) {
 			throw new IllegalArgumentException("Route not found with id " + id);
@@ -131,7 +126,6 @@ public class RouteServiceImpl implements RouteService {
 	 */
 	@Override
 	@Transactional
-	@CacheEvict(value = {"routesCache"}, allEntries = true, beforeInvocation = false)
 	public void removeAll(List<Long> idList) {
 		for (Long id: idList) {
 			repo.delete(id);

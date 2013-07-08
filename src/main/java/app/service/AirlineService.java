@@ -25,9 +25,9 @@ public interface AirlineService {
 	 * @param id the id
 	 * @return the airline
 	 */
-	public Airline find(@Min(0) long id);
+	Airline find(@Min(0) long id);
 		
-	public @NotNull
+	@NotNull
 	Iterable<Airline> findAll(@NotNull Iterable<Long> ids);
 	
 	/**
@@ -37,7 +37,7 @@ public interface AirlineService {
 	 * @param skip the skip
 	 * @return the all
 	 */
-	public @NotNull
+	@NotNull
 	List<Airline> findAll(@Min(0) int limit, @Min(0) int skip);
 
 	/**
@@ -48,7 +48,7 @@ public interface AirlineService {
 	 * @param skip the skip
 	 * @return the list
 	 */
-	public @NotNull
+	@NotNull
 	List<Airline> search(@NotNull String startsWith,
 			@Min(1) int limit, @Min(0) int skip);
 
@@ -59,7 +59,7 @@ public interface AirlineService {
 	 * @return the airline
 	 */
 	@Transactional
-	public Airline save(@NotNull Airline airline);
+	Airline save(@NotNull Airline airline);
 
 	/**
 	 * Removes the.
@@ -67,10 +67,10 @@ public interface AirlineService {
 	 * @param id the id
 	 */
 	@Transactional
-	public void remove(@Min(0) long id);
+	void remove(@Min(0) long id);
 	
-	public boolean exists(Long id);
+	boolean exists(Long id);
 	
-	public long count();
+	long count();
 	
 }

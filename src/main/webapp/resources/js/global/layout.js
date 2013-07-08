@@ -31,7 +31,7 @@ jQuery(document).ready(function() {
 						startsWith : jQuery("#menu_autocompleteAirport").data("kendoAutoComplete").value(),
 						skip : options.skip,
 						limit: options.take,
-					}
+					};
 				}
 			},
 			requestStart : function() {
@@ -64,11 +64,5 @@ function truncate(str, limit) {
 }
 function flagUrl(code) {
 	var url = ctx+'/resources/images/countries/32/'+code.toLowerCase()+'.png';
-	return url;
-	var img = new Image();
-	img.src = url;
-	if (img == null || img.height == 0) {
-		url = ctx+'/resources/images/countries/64/unknown.png';
-	}
 	return url;
 }

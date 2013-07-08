@@ -28,24 +28,24 @@ public interface AirportService {
 	 * @param id the id
 	 * @return the airport
 	 */
-	public Airport find(@Min(0) long id);
+	Airport find(@Min(0) long id);
 	
 	/**
 	 * Gets the all.
 	 *
 	 * @return the all
 	 */
-	public @NotNull
+	@NotNull
 	List<Airport> findAll();
 	
-	public @NotNull
+	@NotNull
 	List<Airport> findAllByCountry(long countryId, int limit, int skip);
 	
-	public @NotNull
+	@NotNull
 	long countByCountry(long countryId);
 	
 	@Transactional
-	public void update(@NotNull Airport airport);
+	void update(@NotNull Airport airport);
 	
 
 	/**
@@ -55,7 +55,7 @@ public interface AirportService {
 	 * @return the airport
 	 */
 	@Transactional
-	public long save(@NotNull Airport airport);
+	long save(@NotNull Airport airport);
 
 	/**
 	 * Removes the.
@@ -63,7 +63,7 @@ public interface AirportService {
 	 * @param id the id
 	 */
 	@Transactional
-	public void remove(@NotNull long id);
+	void remove(@NotNull long id);
 
 	/**
 	 * Gets the connected.
@@ -74,7 +74,7 @@ public interface AirportService {
 	 * @param skip the skip
 	 * @return the connected
 	 */
-	public @NotNull
+	@NotNull
 	Set<Airport> getConnected(@Min(0) long airportId,
 			@NotNull Direction direction, @Min(1) int limit, @Min(0) int skip);
 
@@ -87,7 +87,7 @@ public interface AirportService {
 	 * @param distanceKm the distance km
 	 * @return the list
 	 */
-	public @NotNull
+	@NotNull
 	List<Airport> findNearby(@Range(min = 0, max = 90) double latitude,
 			@Range(min = -180, max = 180) double longitude,
 			@Min(1) double distanceKm, boolean excludeFirst);
@@ -100,11 +100,11 @@ public interface AirportService {
 	 * @param skip the skip
 	 * @return the list
 	 */
-	public @NotNull
+	@NotNull
 	List<Airport> search(@NotNull String startsWith, @Min(1) int limit,
 			@Min(0) int skip);
 	
-	public boolean exists(Long id);
+	boolean exists(Long id);
 	
-	public long count();
+	long count();
 }

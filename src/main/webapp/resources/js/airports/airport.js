@@ -58,7 +58,7 @@ jQuery(document).ready(function() {
 			cache: true,
 			dataType: "json",
 			parameterMap : function(options) {
-				return {format:'json',direction: 'out', limit: 1000}
+				return {format:'json',direction: 'out', limit: 1000};
 			}
 		},
 		change: function(e) {
@@ -98,7 +98,7 @@ jQuery(document).ready(function() {
 			cache: true,
 			dataType: "json",
 			parameterMap : function(options) {
-				return {format:'json',direction: 'in',limit: 1000}
+				return {format:'json',direction: 'in',limit: 1000};
 			}
 		},
 		change: function(e) {
@@ -148,7 +148,7 @@ jQuery(document).ready(function() {
 						format:'json',
 						startsWith : jQuery("#autocompleteAddAirport").data("kendoAutoComplete").value(),
 						limit: 15
-					}
+					};
 				}
 			}
 		})
@@ -167,7 +167,7 @@ jQuery(document).ready(function() {
 					skip: options.skip,
 					lazy: false,
 					direction: 'both'
-				}
+				};
 			}
 		},
 		type : "json",
@@ -255,7 +255,7 @@ function loadNearbyTab() {
 			cache: true,
 			dataType: "json",
 			parameterMap : function(options) {
-				return {format:'json',distance: '150',lat:airport.latitude,lng:airport.longitude,excludeFirst:true}
+				return {format:'json',distance: '150',lat:airport.latitude,lng:airport.longitude,excludeFirst:true};
 			}
 		},
 		change: function(e) {
